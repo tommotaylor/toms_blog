@@ -1,0 +1,17 @@
+<h1>All Articles:</h1>
+<% articles.each do |article| %>
+  <div class="article_<%= article.id %>">
+    <h4><%= link_to article.title.capitalize, article_path(article) %></h4>
+    <p><%= article.body %></p>
+
+    <div class="comments">
+      <% article.comments.first(3).each do |comment| %>
+        <div class="row">
+          <div class="span8 well">
+            <p><%= comment.body %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

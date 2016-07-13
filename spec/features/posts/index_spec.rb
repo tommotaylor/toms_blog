@@ -8,7 +8,11 @@ feature "Posts: Index" do
       created_at: 2.days.ago
   end
   let!(:comments) do
-    3.times { Fabricate :comment, commentable: post }
+    3.times do |i|
+      Fabricate :comment,
+        commentable: post,
+        body: "Comment #{i}"
+    end
   end
 
   scenario "lists posts with first three comments" do
@@ -20,9 +24,9 @@ feature "Posts: Index" do
     expect(page).to have_content(post_2.body)
 
     within ".post_#{post.id}" do
-      expect(page).to have_content("Comment #0")
-      expect(page).to have_content("Comment #1")
-      expect(page).to have_content("Comment #2")
+      expect(page).to have_content("Comment 0")
+      expect(page).to have_content("Comment 1")
+      expect(page).to have_content("Comment 2")
       expect(page).to have_no_content("Not visible")
     end
   end

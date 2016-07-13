@@ -1,10 +1,12 @@
 class CommentsController < ApplicationController
+  before_action :set_commentable
+
   def create
     comment = Comment.new(comment_params)
-    comment.commentable = post
+    comment.commentable = @commentable
     if comment.save
       flash[:success] = "Your comment was saved"
-      redirect_to post_path(post)
+      redirect_to comment.commentable
     else
       flash[:danger] = "Your comment was not saved"
       redirect_to :back
@@ -13,11 +15,12 @@ class CommentsController < ApplicationController
 
   private
 
-  def post
-    @post ||= Post.find_by(id: params[:post_id])
+  def set_commentable
+    klass = [Article, Post].detect { |c| params["#{c.name.underscore}_id"] }
+    @commentable = klass.find(params["#{klass.name.underscore}_id"])
   end
 
   def comment_params
-    params.require(:comment).permit(:body, :post_id)
+    params.require(:comment).permit(:body)
   end
 end
