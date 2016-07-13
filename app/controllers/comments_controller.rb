@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
+  before_action :require_login
   def create
     comment = Comment.new(comment_params)
     comment.commentable = post
+    comment.user = current_user
     if comment.save
       flash[:success] = "Your comment was saved"
       redirect_to post_path(post)

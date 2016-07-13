@@ -10,6 +10,8 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "bootstrap-sass", "~> 3.3.6"
 
+gem "clearance"
+
 group :test do
   gem "simplecov", require: false
   gem "database_cleaner"
