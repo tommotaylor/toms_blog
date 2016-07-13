@@ -1,7 +1,17 @@
 <h1>All Posts:</h1>
 <% posts.each do |post| %>
-  <div class="post">
+  <div class="post_<%= post.id %>">
     <h4><%= link_to post.title.capitalize, post_path(post) %></h4>
     <p><%= post.body %></p>
+
+    <div class="comments">
+      <% post.comments.first(3).each do |comment| %>
+        <div class="row">
+          <div class="span8 well">
+            <p><%= comment.body %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 <% end %>

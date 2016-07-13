@@ -4,16 +4,20 @@ class PostsController < ApplicationController
   end
 
   def show
-    render :show, locals: { post: post }
+    render :show, locals: { post: post, comment: comment }
   end
 
   private
 
   def posts
-    @posts ||= Post.all
+    @posts ||= Post.includes(:comments)
   end
 
   def post
     @post ||= Post.find_by(id: params[:id])
+  end
+
+  def comment
+    @comment ||= Comment.new
   end
 end

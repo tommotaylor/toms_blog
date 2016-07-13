@@ -14,6 +14,7 @@ group :test do
   gem "simplecov", require: false
   gem "database_cleaner"
   gem "capybara-webkit"
+  gem "launchy"
 end
 
 group :development, :test do
