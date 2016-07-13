@@ -1,0 +1,53 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Include:
+    - "Gemfile"
+  Exclude:
+    - "config.ru"
+    - "app/assets/**/*"
+    - "bin/**/*"
+    - "db/**/*"
+    - "log/**/*"
+    - "public/**/*"
+    - "spec/support/**/*"
+    - "support/icons/**/*"
+    - "support/files/**/*"
+    - "vendor/bundle/**/*"
+    - "tmp/**/*"
+    - "config/**/*"
+  DisplayCopNames: true
+  UseCache: true
+  CacheRootDirectory: ./tmp
+
+Rails:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Style/AlignHash:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+
+Style/IndentArray:
+  EnforcedStyle: consistent
+
+Style/FormatString:
+  EnforcedStyle: sprintf
+
+Metrics/MethodLength:
+  Max: 15

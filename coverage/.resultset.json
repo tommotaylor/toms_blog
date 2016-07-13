@@ -1,0 +1,43 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/Tom/code/toms_blog/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Tom/code/toms_blog/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/Tom/code/toms_blog/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/Tom/code/toms_blog/app/controllers/application_controller.rb": [
+        0,
+        0,
+        0
+      ],
+      "/Users/Tom/code/toms_blog/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/Users/Tom/code/toms_blog/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/Tom/code/toms_blog/app/models/application_record.rb": [
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1468420288
+  }
+}
