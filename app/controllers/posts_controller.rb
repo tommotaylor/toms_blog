@@ -1,17 +1,17 @@
 class PostsController < ApplicationController
-  def new(options = {})
-    render :new, locals: { post: Post.new }.merge(options)
+  def new
+    render :new, locals: { post: Post.new }
   end
 
   def create
     post = Post.new(post_params)
     if post.save
-      params[:post][:tagging_ids].reject(&:blank?).each do |tag_id|
+      params[:post][:tag_ids].reject(&:blank?).each do |tag_id|
         Tagging.create(taggable: post, tag_id: tag_id)
       end
-      redirect_to post_path(post), notice: "Post saved"
+      redirect_to post_path(post)
     else
-      new notice: "Post not saved"
+      render :new, locals: { post: post }
     end
   end
 

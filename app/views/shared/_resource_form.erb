@@ -1,0 +1,8 @@
+<div class="well">
+  <%= bootstrap_form_for resource, label_errors: true do |f| %>
+    <%= f.text_field :title %>
+    <%= f.text_area :body %>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name, label: "Tags", item_wrapper_class: "inline" %>
+    <%= f.submit "Create #{resource.class.name}", class: 'btn btn-primary' %>
+  <% end %>
+</div>

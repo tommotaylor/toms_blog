@@ -2,24 +2,23 @@
   <h3><%= article.title %></h3>
   <p> <%= article.body %></p>
   <div class="tags">
-    <p>Tags: <%= article.tags.map(&:name).join(", ") %>
+    <h4> Tags:
+      <% article.tags.map(&:name).each do |tag| %>
+        <span class="label label-success"><%= tag %></span>
+      <% end %>
+    </h4>
   </div>
 </div>
+<hr>
 
-<div class="well">
-  <%= form_for [article, comment] do |f| %>
-    <%= render "shared/errors", obj: comment %>
-    <%=f.label :body, "Leave a comment:"%>
-    <%=f.text_area :body %>
-    <%= f.submit "Create comment",  class: "btn btn-primary" %>
-  <% end %>
-</div>
-
-<h5>Comments:</h5>
-<% article.comments.each do |comment| %>
-  <div class="row">
-    <div class="span8 well comment">
-      <p><em>"<%= comment.body %>"</em></p>
-    </div>
+<div class="row">
+  <div class="col-md-8">
+    <h5>Comments:</h5>
+    <% article.comments.each do |comment| %>
+      <%= render "shared/comment", comment: comment %>
+    <% end %>
   </div>
-<% end %>
+  <div class="col-md-4">
+    <%= render "shared/comment_form", resource: article, comment: comment %>
+  </div>
+</div>

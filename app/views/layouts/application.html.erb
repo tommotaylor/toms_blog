@@ -9,6 +9,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/navigation" %>
+    <div class="container theme-showcase">
+      <%= flash_messages %>
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160714072348) do
 
   create_table "comments", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.text     "body"
+    t.text     "user"
     t.string   "commentable_type"
     t.uuid     "commentable_id"
     t.datetime "created_at",       null: false

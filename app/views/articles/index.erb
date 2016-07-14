@@ -1,16 +1,14 @@
-<h1>All Articles:</h1>
+<div class="page-header">
+  <h1>All Articles</h1>
+</div>
 <% articles.each do |article| %>
-  <div class="article_<%= article.id %>">
-    <h4><%= link_to article.title.capitalize, article_path(article) %></h4>
+  <div class="jumbotron article_<%= article.id %>">
+    <h3><%= link_to article.title.capitalize, article_path(article) %></h3>
     <p><%= article.body %></p>
 
     <div class="comments">
       <% article.comments.first(3).each do |comment| %>
-        <div class="row">
-          <div class="span8 well">
-            <p><%= comment.body %></p>
-          </div>
-        </div>
+        <%= render "shared/comment", comment: comment %>
       <% end %>
     </div>
   </div>

@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-  def new(options = {})
-    render :new, locals: { article: Article.new }.merge(options)
+  def new
+    render :new, locals: { article: Article.new }
   end
 
   def create
@@ -9,9 +9,9 @@ class ArticlesController < ApplicationController
       params[:article][:tag_ids].reject(&:blank?).each do |tag_id|
         Tagging.create(taggable: article, tag_id: tag_id)
       end
-      redirect_to article_path(article), notice: "Article saved"
+      redirect_to article_path(article)
     else
-      new notice: "Article not saved"
+      render :new, locals: { article: article }
     end
   end
 

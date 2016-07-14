@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
       flash[:success] = "Your comment was saved"
       redirect_to comment.commentable
     else
-      flash[:danger] = "Your comment was not saved"
+      flash[:danger] = "Comment and username required"
       redirect_to :back
     end
   end
@@ -21,6 +21,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :user)
   end
 end

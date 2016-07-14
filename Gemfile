@@ -9,6 +9,7 @@ gem "jquery-rails"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "bootstrap-sass", "~> 3.3.6"
+gem "bootstrap_form"
 
 group :test do
   gem "simplecov", require: false
@@ -38,3 +39,5 @@ group :production, :staging do
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+ruby "2.3.1"
