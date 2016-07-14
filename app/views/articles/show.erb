@@ -1,6 +1,9 @@
 <div class="article">
   <h3><%= article.title %></h3>
   <p> <%= article.body %></p>
+  <div class="tags">
+    <p>Tags: <%= article.tags.map(&:name).join(", ") %>
+  </div>
 </div>
 
 <div class="well">
