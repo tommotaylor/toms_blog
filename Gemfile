@@ -10,6 +10,8 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "bootstrap-sass", "~> 3.3.6"
 gem "bootstrap_form"
+gem "fabrication"
+gem "faker"
 
 group :test do
   gem "simplecov", require: false
@@ -20,8 +22,6 @@ end
 
 group :development, :test do
   gem "rspec-rails"
-  gem "fabrication"
-  gem "faker"
   gem "pry"
 end
 

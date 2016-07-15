@@ -39,7 +39,7 @@ bundle exec rails s
 # open your browser on http://localhost:3000
 ```
 
-### Dependencies
+## Dependencies
 
 - Rails 5.0.0
 - Ruby 2.3.1
@@ -50,11 +50,16 @@ bundle exec rails s
 Tested using [RSpec](http://rspec.info/) to test the applications. In every
 application directory run `rspec` to test that single application.
 
-### Coverage
+## Coverage
 
 Run the test suite with the environmental variable `COV=1` eg: `COV=1 rspec` to 
 trigger [SimpleCov](https://github.com/colszowka/simplecov) for coverage testing.
 
+## Code Style
+
+Code style enforced using [Rubocop](https://github.com/bbatsov/rubocop) to test
+the code base run `cop -D` from the terminal.
+
 ## Deploying
 
-The application is hosted on Heroku at: 
+The application is hosted on Heroku at: https://desolate-harbor-15469.herokuapp.com/
