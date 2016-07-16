@@ -4,4 +4,6 @@ class Post < ApplicationRecord
   has_many :tags, through: :taggings
 
   validates :title, presence: true
+
+  default_scope { order(created_at: :desc) }
 end

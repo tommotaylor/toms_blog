@@ -17,8 +17,10 @@ ActiveRecord::Schema.define(version: 20160714072348) do
   enable_extension "uuid-ossp"
 
   create_table "articles", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.string "title"
-    t.text   "body"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
