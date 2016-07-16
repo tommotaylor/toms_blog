@@ -14,9 +14,11 @@
 <div class="row">
   <div class="col-md-8">
     <h5>Comments:</h5>
-    <% article.comments.each do |comment| %>
-      <%= render "shared/comment", comment: comment %>
-    <% end %>
+    <div class="comments-container">
+      <% article.comments.each do |comment| %>
+        <%= render "shared/comment", comment: comment %>
+      <% end %>
+    </div>
   </div>
   <div class="col-md-4">
     <%= render "shared/comment_form", resource: article, comment: comment %>
