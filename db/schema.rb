@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160714072348) do
 
   create_table "tags", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string "name"
+    t.string "slug"
   end
 
 end

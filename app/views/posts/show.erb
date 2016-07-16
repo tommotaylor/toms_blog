@@ -3,8 +3,8 @@
   <p> <%= post.body %></p>
   <div class="tags">
     <h4> Tags:
-      <% post.tags.map(&:name).each do |tag| %>
-        <span class="label label-success"><%= tag %></span>
+      <% post.tags.each do |tag| %>
+        <%= render "shared/tag", tag: tag %>
       <% end %>
     </h4>
   </div>
