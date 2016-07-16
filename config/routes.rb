@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :posts, only: [:new, :create, :show, :index]
   resources :articles, only: [:new, :create, :show, :index]
   resources :comments, only: :create
+  resources :tags, only: :show
 end

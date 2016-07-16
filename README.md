@@ -1,4 +1,4 @@
-# Toms Blog
+# Tom's Blog
 
 This is a sample rails app produced to the following specifications:
 - Implement a simple blog system including two models: Post and Comment. 
@@ -47,8 +47,8 @@ bundle exec rails s
 
 ## Testing
 
-Tested using [RSpec](http://rspec.info/) to test the applications. In every
-application directory run `rspec` to test that single application.
+Tested using [RSpec](http://rspec.info/). In the app directory run `rspec` to 
+test the entire application.
 
 ## Coverage
 

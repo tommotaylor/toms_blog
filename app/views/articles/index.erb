@@ -6,6 +6,12 @@
     <h3><%= link_to article.title.capitalize, article_path(article) %></h3>
     <p><%= article.body %></p>
 
+    <h4 class="pull-right"> Tags:
+      <% article.tags.each do |tag| %>
+        <%= render "shared/tag", tag: tag %>
+      <% end %>
+    </h4>
+
     <div class="comments">
       <% article.comments.first(3).each do |comment| %>
         <%= render "shared/comment", comment: comment %>

@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   private
 
   def posts
-    @posts ||= Post.includes(:comments)
+    @posts ||= Post.includes(:comments, :tags)
   end
 
   def post
