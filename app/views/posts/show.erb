@@ -1,25 +1,28 @@
-<div class="post">
-  <h3><%= post.title %></h3>
-  <p> <%= post.body %></p>
-  <div class="tags">
-    <h4> Tags:
-      <% post.tags.each do |tag| %>
-        <%= render "shared/tag", tag: tag %>
-      <% end %>
-    </h4>
-  </div>
-</div>
-<hr>
-
-<div class="row">
-  <div class="col-md-8">
-    <h5>Comments:</h5>
-    <div class="comments-container">
-      <% post.comments.each do |comment| %>
-        <%= render "shared/comment", comment: comment %>
-      <% end %>
+<% cache post do %>
+  <div class="post">
+    <h3><%= post.title %></h3>
+    <p> <%= post.body %></p>
+    <div class="tags">
+      <h4> Tags:
+        <% post.tags.each do |tag| %>
+          <%= render "shared/tag", tag: tag %>
+        <% end %>
+      </h4>
     </div>
   </div>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h5>Comments:</h5>
+      <div class="comments-container">
+        <% post.comments.each do |comment| %>
+          <%= render "shared/comment", comment: comment %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
   <div class="col-md-4">
     <%= render "shared/comment_form", resource: post, comment: comment %>
   </div>

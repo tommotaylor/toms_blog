@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   private
 
   def posts
-    @posts ||= Post.includes(:comments, :tags).page params[:page]
+    @posts ||= Post.all.page params[:page]
   end
 
   def post

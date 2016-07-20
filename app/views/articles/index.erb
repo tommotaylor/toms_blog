@@ -2,22 +2,24 @@
   <h1>All Articles</h1>
 </div>
 <% articles.each do |article| %>
-  <div class="jumbotron article_<%= article.id %>">
-    <h3><%= link_to article.title.capitalize, article_path(article) %></h3>
-    <p><%= article.body %></p>
+  <% cache article do %>
+    <div class="jumbotron article_<%= article.id %>">
+      <h3><%= link_to article.title.capitalize, article_path(article) %></h3>
+      <p><%= article.body %></p>
 
-    <h4 class="pull-right"> Tags:
-      <% article.tags.each do |tag| %>
-        <%= render "shared/tag", tag: tag %>
-      <% end %>
-    </h4>
+      <h4 class="pull-right"> Tags:
+        <% article.tags.each do |tag| %>
+          <%= render "shared/tag", tag: tag %>
+        <% end %>
+      </h4>
 
-    <div class="comments">
-      <% article.comments.first(3).each do |comment| %>
-        <%= render "shared/comment", comment: comment %>
-      <% end %>
+      <div class="comments">
+        <% article.comments.first(3).each do |comment| %>
+          <%= render "shared/comment", comment: comment %>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
 
 <div class="pagination-links pull-right">

@@ -37,6 +37,8 @@ end
 
 group :production, :staging do
   gem "rails_12factor"
+  gem "dalli"
+  gem "connection_pool"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
