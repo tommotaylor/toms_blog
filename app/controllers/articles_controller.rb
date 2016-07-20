@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
   private
 
   def articles
-    @articles ||= Article.includes(:comments, :tags)
+    @articles ||= Article.includes(:comments, :tags).page params[:page]
   end
 
   def article

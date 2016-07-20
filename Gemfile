@@ -12,6 +12,7 @@ gem "bootstrap-sass", "~> 3.3.6"
 gem "bootstrap_form"
 gem "fabrication"
 gem "faker"
+gem "kaminari"
 
 group :test do
   gem "simplecov", require: false
