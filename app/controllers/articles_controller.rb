@@ -20,7 +20,14 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    render :show, locals: { article: article, comment: comment }
+    respond_to do |format|
+      format.html do
+        render :show,
+          locals: { article: article, comments: comments, comment: comment }
+      end
+      @comments = comments
+      format.js { render "shared/load_comments" }
+    end
   end
 
   private
@@ -35,6 +42,10 @@ class ArticlesController < ApplicationController
 
   def comment
     @comment ||= Comment.new
+  end
+
+  def comments
+    @comments ||= article.comments.page params[:page]
   end
 
   def article_params

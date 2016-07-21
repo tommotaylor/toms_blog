@@ -20,7 +20,14 @@ class PostsController < ApplicationController
   end
 
   def show
-    render :show, locals: { post: post, comment: comment }
+    respond_to do |format|
+      format.html do
+        render :show,
+          locals: { post: post, comments: comments, comment: comment }
+      end
+      @comments = comments
+      format.js { render "shared/load_comments" }
+    end
   end
 
   private
@@ -35,6 +42,10 @@ class PostsController < ApplicationController
 
   def comment
     @comment ||= Comment.new
+  end
+
+  def comments
+    @comments ||= post.comments.page params[:page]
   end
 
   def post_params

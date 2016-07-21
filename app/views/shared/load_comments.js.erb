@@ -1,0 +1,4 @@
+<% @comments.each do |comment| %>
+  $(".comments-container").append("<%= escape_javascript (render partial: 'shared/comment', locals: { comment: comment }) %>");
+<% end %>
+$(".more-comments").empty().html("<%= escape_javascript(link_to_next_page(@comments, "Load more comments...", :remote => true, :class=>".more_link"))%>")

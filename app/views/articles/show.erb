@@ -16,9 +16,12 @@
     <div class="col-md-8">
       <h5>Comments:</h5>
       <div class="comments-container">
-        <% article.comments.each do |comment| %>
+        <% comments.each do |comment| %>
           <%= render "shared/comment", comment: comment %>
         <% end %>
+      </div>
+      <div class="more-comments">
+        <%= link_to_next_page comments, "Load more comments...", remote: true %>
       </div>
     </div>
   <% end %>
